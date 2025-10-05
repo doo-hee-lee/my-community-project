@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Community</title>
+</head>
+<body>
+    <nav>
+        <a href="/">홈</a> |
+        <a href="{{ url_for('create_post') }}">게시판</a> |
+        <a href="#">로그인</a> |
+        <a href="#">회원가입</a>
+    </nav>
+    <hr>
+    <main>
+        {% block content %}
+        <!-- 이 블록 안에 각 페이지의 고유한 내용이 채워집니다. -->
+        {% endblock %}
+    </main>
+</body>
+</html>
