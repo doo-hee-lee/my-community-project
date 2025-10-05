@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>우리 커뮤니티에 오신 것을 환영합니다!</h1>
+    <p>이곳은 우리가 함께 만들고 성장해나가는 공간입니다. 자유롭게 의견을 나누고 정보를 공유하세요.</p>
+    <hr>
+    <h2>전체 게시글</h2>
+    {% for post in posts %}
+        <article>
+            <h3><a href="{{ url_for('post_detail', post_id=post.id) }}">{{ post.title }}</a></h3>
+            <small>작성 시간: {{ post.created_at.strftime('%Y년 %m월 %d일 %H:%M') }}</small>
+            <p>{{ post.content }}</p>
+        </article>
+        <hr>
+    {% else %}
+        <p>아직 작성된 게시글이 없습니다. 첫 번째 글을 작성해보세요!</p>
+    {% endfor %}
+{% endblock %}
